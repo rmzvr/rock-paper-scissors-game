@@ -1,0 +1,88 @@
+@use '../../utils/styles/container.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+
+  padding-inline: 24px;
+  padding-block: 18px;
+
+  margin-bottom: 64px;
+}
+
+.score {
+  padding-inline: 48px;
+  padding-block: 16px;
+
+  border-radius: 8px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+
+  background-image: var(--clr-score-gradient);
+}
+
+.scoreTitle {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  text-align: center;
+
+  color: var(--clr-score-text);
+}
+
+.scoreCounter {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 64px;
+
+  text-align: center;
+
+  color: var(--clr-score-counter);
+}
+
+.main {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  max-width: 476px;
+  min-height: 430px;
+
+  margin-inline: auto;
+}
+
+.triangle {
+  z-index: -1;
+}
+
+.item {
+  position: absolute;
+
+  max-width: 198px;
+  min-height: 203px;
+
+  cursor: pointer;
+
+  &[id='paper'] {
+    top: 0;
+    left: 0;
+  }
+
+  &[id='scissors'] {
+    top: 0;
+    right: 0;
+  }
+
+  &[id='rock'] {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
