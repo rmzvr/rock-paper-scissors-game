@@ -1,0 +1,11 @@
+@use '../utils/styles/reset.scss';
+@use '../utils/styles/colors.scss';
+@use '../utils/styles/container.scss';
+
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.App {
+  background-color: red;
+}
