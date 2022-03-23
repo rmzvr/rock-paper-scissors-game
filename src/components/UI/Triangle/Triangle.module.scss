@@ -1,0 +1,56 @@
+.triangle {
+  max-width: 302px;
+
+  --animation-properties: 2000ms linear infinite normal forwards;
+}
+
+.topSegment {
+  animation: slideLeft var(--animation-properties);
+
+  @keyframes slideLeft {
+    0% {
+      transform: translate(-73px, 0px);
+    }
+    33.333333% {
+      transform: translateX(219px);
+    }
+    100% {
+      transform: translateX(219px);
+    }
+  }
+}
+
+.rightSegment {
+  animation: slideDownLeft var(--animation-properties);
+
+  @keyframes slideDownLeft {
+    0% {
+      transform: translate(291px, 7.5px);
+    }
+    30% {
+      transform: translate(291px, 7.5px);
+    }
+    66.666667% {
+      transform: translate(152.5px, 261.5px);
+    }
+    100% {
+      transform: translate(152.5px, 261.5px);
+    }
+  }
+}
+
+.leftSegment {
+  animation: slideTopLeft var(--animation-properties);
+
+  @keyframes slideTopLeft {
+    0% {
+      transform: translate(125.5px, 199.1px);
+    }
+    63.333333% {
+      transform: translate(125.5px, 199.1px);
+    }
+    100% {
+      transform: translate(-18.8px, -51.8px);
+    }
+  }
+}
