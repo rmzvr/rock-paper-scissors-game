@@ -1,0 +1,13 @@
+@use './utils/styles/reset.scss';
+@use './utils/styles/colors.scss';
+
+body {
+  min-height: 100vh;
+
+  padding-top: 48px;
+
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-style: normal;
+
+  background-image: var(--clr-background-gradient);
+}
