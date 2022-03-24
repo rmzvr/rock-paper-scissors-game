@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux'
 import styles from './Triangle.module.scss'
 
 function Triangle() {
+  const visible = useSelector((state) => state.game.triangle.state)
+
   return (
     <svg
-      className={styles.triangle}
+      className={`${styles.triangle} ${visible}`}
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 305 277'
       shapeRendering='geometricPrecision'
@@ -110,7 +113,10 @@ function Triangle() {
           strokeLinecap='square'
         />
       </g>
-      <g className={styles.rightSegment} transform='translate(291.499982,7.500003)'>
+      <g
+        className={styles.rightSegment}
+        transform='translate(291.499982,7.500003)'
+      >
         <rect
           id='bg-triangle-2-el0huysfwoh4'
           width='145'

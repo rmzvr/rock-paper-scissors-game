@@ -1,0 +1,51 @@
+.item {
+  position: absolute;
+
+  width: 198px;
+  min-height: 203px;
+
+  cursor: pointer;
+
+  transition: all 1s ease;
+
+  &[id='paper'] {
+    top: 0;
+    left: 0;
+  }
+
+  &[id='scissors'] {
+    top: 0;
+    right: 0;
+  }
+
+  &[id='rock'] {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &[class~='active'] {
+    width: 292px;
+
+    pointer-events: none;
+  }
+
+  &[class~='active'][id='paper'] {
+    transform: translate(-114px, 95px);
+  }
+
+  &[class~='active'][id='scissors'] {
+    transform: translate(-298px, 95px);
+  }
+
+  &[class~='active'][id='rock'] {
+    transform: translate(-352px, -36px);
+  }
+
+  &[class~='hidden'] {
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 0.5s ease;
+  }
+}

@@ -1,7 +1,13 @@
 .triangle {
+  --animation-properties: 2000ms linear infinite normal forwards;
+
   max-width: 302px;
 
-  --animation-properties: 2000ms linear infinite normal forwards;
+  &[class~='hidden'] {
+    opacity: 0;
+
+    transition: all 0.4s ease;
+  }
 }
 
 .topSegment {

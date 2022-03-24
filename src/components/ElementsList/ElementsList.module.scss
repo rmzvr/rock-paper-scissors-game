@@ -1,0 +1,11 @@
+.items {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  max-width: 476px;
+  min-height: 430px;
+
+  margin-inline: auto;
+}

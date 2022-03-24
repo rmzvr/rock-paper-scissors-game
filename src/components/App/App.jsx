@@ -1,29 +1,31 @@
 import styles from './App.module.scss'
 import logo from '../../assets/logo.svg'
-import paper from '../../assets/paper.svg'
-import scissors from '../../assets/scissors.svg'
-import rock from '../../assets/rock.svg'
-import Triangle from '../UI/Triangle'
+import Score from '../Score'
+import GameField from '../GameField'
+import ElementList from '../ElementsList'
+import Result from '../Result/Result'
 
 function App() {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <a href='/'>
-          <img src={logo} alt='logo' />
-        </a>
-        <div className={styles.score}>
-          <h2 className={styles.scoreTitle}>Score</h2>
-          <span className={styles.scoreCounter}>00</span>
-        </div>
-      </header>
-      <main className={styles.main}>
-        <Triangle />
-        <img className={styles.item} id='paper' src={paper}></img>
-        <img className={styles.item} id='scissors' src={scissors}></img>
-        <img className={styles.item} id='rock' src={rock}></img>
-      </main>
-    </div>
+    <>
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <a href='/'>
+            <img src={logo} alt='logo' />
+          </a>
+          <Score />
+        </header>
+        <main className={styles.main}>
+          <ElementList />
+          <GameField />
+        </main>
+        <footer className={styles.footer}>
+          <button className={styles.rules} type='button'>
+            Rules
+          </button>
+        </footer>
+      </div>
+    </>
   )
 }
 

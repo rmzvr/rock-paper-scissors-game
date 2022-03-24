@@ -14,75 +14,34 @@
   margin-bottom: 64px;
 }
 
-.score {
-  padding-inline: 48px;
-  padding-block: 16px;
-
-  border-radius: 8px;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
-
-  background-image: var(--clr-score-gradient);
+.main {
+  position: relative;
 }
 
-.scoreTitle {
+.rules {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+
+  border: 1px solid var(--clr-white);
+  border-radius: 8px;
+
+  padding-inline: 37px;
+  padding-block: 11px;
+
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
+  text-align: center;
   letter-spacing: 2.5px;
   text-transform: uppercase;
 
-  text-align: center;
+  color: var(--clr-white);
 
-  color: var(--clr-score-text);
-}
+  transition: all 0.15s ease-in;
 
-.scoreCounter {
-  font-weight: 700;
-  font-size: 64px;
-  line-height: 64px;
-
-  text-align: center;
-
-  color: var(--clr-score-counter);
-}
-
-.main {
-  position: relative;
-
-  display: grid;
-  place-items: center;
-
-  max-width: 476px;
-  min-height: 430px;
-
-  margin-inline: auto;
-}
-
-.triangle {
-  z-index: -1;
-}
-
-.item {
-  position: absolute;
-
-  max-width: 198px;
-  min-height: 203px;
-
-  cursor: pointer;
-
-  &[id='paper'] {
-    top: 0;
-    left: 0;
-  }
-
-  &[id='scissors'] {
-    top: 0;
-    right: 0;
-  }
-
-  &[id='rock'] {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  &:hover {
+    color: var(--clr-dark-text);
+    background-color: var(--clr-white);
   }
 }
