@@ -12,12 +12,28 @@
   }
 
   &[class~='slideToLeft'] {
-    transition: all 1.4s;
-    transform: translateX(-1000px);
+    animation: slideToLeft 1.4s forwards;
   }
 
   &[class~='slideToRight'] {
-    transition: all 1.4s;
+    animation: slideToRight 1.4s forwards;
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
+@keyframes slideToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
     transform: translateX(1000px);
   }
 }

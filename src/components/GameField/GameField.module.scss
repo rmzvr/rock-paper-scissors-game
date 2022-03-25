@@ -15,7 +15,8 @@
   opacity: 0;
 
   &[class~='hidden'] {
-    transition: opacity 1s ease;
+    max-width: 938px;
+    transition: all 1s 1s ease;
   }
 
   &[class~='visible'] {
