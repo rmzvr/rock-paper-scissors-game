@@ -8,23 +8,22 @@ import Result from '../Result/Result'
 function App() {
   return (
     <>
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <a href='/'>
-            <img src={logo} alt='logo' />
-          </a>
-          <Score />
-        </header>
-        <main className={styles.main}>
-          <ElementList />
-          <GameField />
-        </main>
-        <footer className={styles.footer}>
-          <button className={styles.rules} type='button'>
-            Rules
-          </button>
-        </footer>
-      </div>
+      <header className={styles.header}>
+        <a href='/'>
+          <img src={logo} alt='logo' />
+        </a>
+        <Score />
+      </header>
+      <main className={styles.main}>
+        <ElementList />
+        <GameField />
+        <Result />
+      </main>
+      <footer className={styles.footer}>
+        <button className={styles.rules} type='button'>
+          Rules
+        </button>
+      </footer>
     </>
   )
 }

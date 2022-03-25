@@ -5,6 +5,8 @@ import {
   hideTriangle,
   getRandomElement,
   compareWinner,
+  updateScore,
+  showResult,
 } from '../../store/gameSlice'
 import styles from './Element.module.scss'
 
@@ -18,6 +20,8 @@ function Element({ element }) {
     setTimeout(() => {
       dispatch(getRandomElement())
       dispatch(compareWinner())
+      dispatch(updateScore())
+      dispatch(showResult())
     }, 5400)
   }
 
