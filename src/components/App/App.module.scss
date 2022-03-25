@@ -1,6 +1,8 @@
 @use '../../utils/styles/container.scss';
 
 .header {
+  max-width: 700px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,6 +14,7 @@
   padding-block: 18px;
 
   margin-bottom: 64px;
+  margin-inline: auto;
 }
 
 .main {

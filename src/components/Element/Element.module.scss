@@ -6,8 +6,6 @@
 
   cursor: pointer;
 
-  transition: all 1s ease;
-
   &[id='paper'] {
     top: 0;
     left: 0;
@@ -27,25 +25,43 @@
   &[class~='active'] {
     width: 292px;
 
+    transition: all 1s ease;
+
     pointer-events: none;
   }
 
   &[class~='active'][id='paper'] {
-    transform: translate(-114px, 95px);
+    transform: translate(-112px, 95px);
+    animation: hide 0.1s 2s forwards;
   }
 
   &[class~='active'][id='scissors'] {
     transform: translate(-298px, 95px);
+    animation: hide 0.1s 2s forwards;
   }
 
   &[class~='active'][id='rock'] {
     transform: translate(-352px, -36px);
+    animation: hide 0.1s 2s forwards;
   }
 
   &[class~='hidden'] {
     opacity: 0;
     pointer-events: none;
 
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
+  }
+
+  &[class~='visible'] {
+    transition: opacity 0.2s 0.5s ease;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

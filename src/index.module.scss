@@ -1,6 +1,10 @@
 @use './utils/styles/reset.scss';
 @use './utils/styles/colors.scss';
 
+:root {
+  overflow: hidden;
+}
+
 body {
   min-height: 100vh;
 

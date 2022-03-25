@@ -1,8 +1,27 @@
 .result {
   display: grid;
   row-gap: 16px;
-
   max-width: max-content;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  pointer-events: none;
+
+  &[class~='finished'] {
+    transition: all 1s 1.3s ease;
+
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &[class~='slideToBottom'] {
+    top: 200%;
+    transition: all 1.4s;
+  }
 }
 
 .title {
@@ -14,6 +33,7 @@
   color: var(--clr-white);
 
   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
 }
 
 .button {

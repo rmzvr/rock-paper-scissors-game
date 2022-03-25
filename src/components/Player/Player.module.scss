@@ -4,6 +4,22 @@
   display: grid;
   row-gap: 63px;
   grid-template-rows: max-content 300px;
+
+  &[class~='winner'] {
+    .playerElementShadow {
+      opacity: 1;
+    }
+  }
+
+  &[class~='slideToLeft'] {
+    transition: all 1.4s;
+    transform: translateX(-1000px);
+  }
+
+  &[class~='slideToRight'] {
+    transition: all 1.4s;
+    transform: translateX(1000px);
+  }
 }
 
 .playerTitle {
@@ -20,5 +36,17 @@
 }
 
 .playerElement {
-  width: 292px;
+  position: relative;
+}
+
+.playerElementShadow {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+
+  transform: translate(10%, 12%);
+
+  transition: all 1.5s 1s ease;
+
+  opacity: 0;
 }
