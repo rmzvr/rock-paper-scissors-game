@@ -1,10 +1,5 @@
 .gameField {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  width: 100%;
+  max-width: 700px;
 
   display: flex;
   justify-content: space-between;
@@ -12,23 +7,16 @@
 
   margin-inline: auto;
 
-  opacity: 0;
-
-  &[class~='hidden'] {
-    max-width: 938px;
-    transition: all 1s 1s ease;
+  &[data-animation~='fadeIn'] {
+    animation: fadeIn 2s forwards;
   }
+}
 
-  &[class~='visible'] {
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
-    transition: all 1s 1s ease;
-  }
-
-  &[class~='active'] {
-    max-width: 700px;
-  }
-
-  &[class~='finished'] {
-    max-width: 938px;
   }
 }

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import styles from './Score.module.scss'
 
 function Score() {
-  const score = useSelector((state) => state.game.score)
+  const score = useSelector((state) => state.game.result.score)
 
   return (
     <div className={styles.score}>

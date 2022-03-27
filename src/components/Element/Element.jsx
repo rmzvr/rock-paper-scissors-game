@@ -1,12 +1,13 @@
 import { useDispatch } from 'react-redux'
 import {
   setActiveElement,
-  showGameField,
-  hideTriangle,
   getRandomElement,
-  compareWinner,
+  getWinner,
   updateScore,
-  showResult,
+  showResultAnimation,
+  showPlayersAnimation,
+  showElementsListAnimation,
+  showGameFieldAnimation,
 } from '../../store/gameSlice'
 import styles from './Element.module.scss'
 
@@ -14,25 +15,29 @@ function Element({ element }) {
   const dispatch = useDispatch()
 
   function startGame() {
-    dispatch(setActiveElement({ name: element.name }))
-    dispatch(hideTriangle())
-    dispatch(showGameField())
+    dispatch(showElementsListAnimation({ animation: 'fadeOut' }))
+    setTimeout(() => {
+      dispatch(setActiveElement({ name: element.name }))
+      dispatch(showGameFieldAnimation())
+    }, 1000)
     setTimeout(() => {
       dispatch(getRandomElement())
-      dispatch(compareWinner())
+      dispatch(getWinner())
       dispatch(updateScore())
-      dispatch(showResult())
-    }, 5400)
+      dispatch(showPlayersAnimation({ animation: 'shortSlideToLeft' }))
+      dispatch(showResultAnimation({ animation: 'fadeOut' }))
+    }, 4000)
   }
 
   return (
     <img
-      className={`${styles.item} ${element.state}`}
-      id={element.id}
+      className={styles.item}
+      id={element.name}
+      data-visible={element.visible}
       src={element.image}
       alt={element.name}
       onClick={startGame}
-    ></img>
+    />
   )
 }
 

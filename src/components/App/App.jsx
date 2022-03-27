@@ -4,8 +4,13 @@ import Score from '../Score'
 import GameField from '../GameField'
 import ElementList from '../ElementsList'
 import Result from '../Result/Result'
+import { useSelector } from 'react-redux'
 
 function App() {
+  const isGameStarted = useSelector(
+    (state) => state.game.players.player.isElementSelected
+  )
+
   return (
     <>
       <header className={styles.header}>
@@ -15,9 +20,14 @@ function App() {
         <Score />
       </header>
       <main className={styles.main}>
-        <ElementList />
-        <GameField />
-        <Result />
+        {isGameStarted ? (
+          <>
+            <GameField />
+            <Result />
+          </>
+        ) : (
+          <ElementList />
+        )}
       </main>
       <footer className={styles.footer}>
         <button className={styles.rules} type='button'>

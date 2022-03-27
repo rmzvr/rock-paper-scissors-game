@@ -1,12 +1,9 @@
-import { useSelector } from 'react-redux'
 import styles from './Triangle.module.scss'
 
 function Triangle() {
-  const visible = useSelector((state) => state.game.triangle.state)
-
   return (
     <svg
-      className={`${styles.triangle} ${visible}`}
+      className={styles.triangle}
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 305 277'
       shapeRendering='geometricPrecision'

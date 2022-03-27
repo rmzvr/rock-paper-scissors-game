@@ -1,23 +1,41 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { resetGame } from '../../store/gameSlice'
+import {
+  showResultAnimation,
+  showPlayersAnimation,
+  resetElementsListAnimation,
+  resetPlayersAnimation,
+  resetResultAnimation,
+  resetPlayers,
+  showElementsListAnimation,
+} from '../../store/gameSlice'
 import styles from './Result.module.scss'
 
 function Result() {
-  const resultPosition = useSelector((state) => state.game.resultTable.position)
-
   const dispatch = useDispatch()
 
-  function reset() {
-    dispatch(resetGame())
+  function resetGame() {
+    dispatch(showResultAnimation({ animation: 'slideToBottom' }))
+    dispatch(showPlayersAnimation({ animation: 'longSlideToLeft' }))
+    setTimeout(() => {
+      dispatch(resetResultAnimation())
+      dispatch(resetPlayersAnimation())
+      dispatch(resetElementsListAnimation())
+      dispatch(resetPlayers())
+      dispatch(showElementsListAnimation({ animation: 'fadeIn' }))
+    }, 1000)
   }
 
-  const result = useSelector((state) => state.game.result)
-  const finished = useSelector((state) => state.game.gameField.state)
+  const { status, animation } = useSelector((state) => {
+    return {
+      status: state.game.result.status,
+      animation: state.game.animations.resultHUD,
+    }
+  })
 
   return (
-    <div className={`${styles.result} ${finished} ${resultPosition}`}>
-      <span className={styles.title}>{result}</span>
-      <button className={styles.button} type='button' onClick={reset}>
+    <div className={styles.result} data-animation={animation}>
+      <span className={styles.title}>{status}</span>
+      <button className={styles.button} type='button' onClick={resetGame}>
         PLAY AGAIN
       </button>
     </div>

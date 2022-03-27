@@ -2,15 +2,6 @@
   --animation-properties: 2000ms linear infinite normal forwards;
 
   max-width: 302px;
-
-  &[class~='hidden'] {
-    opacity: 0;
-    transition: all 0s ease;
-  }
-
-    &[class~='visible'] {
-    transition: opacity 0.1s 0.6s ease;
-  }
 }
 
 .topSegment {

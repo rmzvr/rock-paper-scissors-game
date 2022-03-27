@@ -4,13 +4,18 @@ import Element from '../Element'
 import Triangle from '../Triangle'
 
 function ElementsList() {
-  const elements = useSelector((state) => state.game.elements)
+  const { elements, animation } = useSelector((state) => {
+    return {
+      elements: state.game.elements,
+      animation: state.game.animations.elementsList,
+    }
+  })
 
   return (
-    <div className={styles.items}>
+    <div className={styles.items} data-animation={animation}>
       <Triangle />
       {elements.map((element) => (
-        <Element key={element.id} element={element} />
+        <Element key={element.name} element={element} />
       ))}
     </div>
   )

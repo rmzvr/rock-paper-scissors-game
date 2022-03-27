@@ -1,51 +1,32 @@
 import { useSelector } from 'react-redux'
+import { createSelector } from '@reduxjs/toolkit'
 import styles from './GameField.module.scss'
-import rock from '../../assets/rock.svg'
 import Player from '../Player'
-import Roulette from '../Roulette/Roulette'
+
+const players = createSelector(
+  (state) => {
+    return {
+      player: {
+        ...state.game.players.player,
+        animation: state.game.animations.player,
+      },
+      computer: {
+        ...state.game.players.computer,
+        animation: state.game.animations.computer,
+      },
+      animation: state.game.animations.gameField,
+    }
+  },
+  (players) => players
+)
 
 function GameField() {
-  const { visible, state } = useSelector((state) => state.game.gameField)
-  const player = useSelector((state) => {
-    if (state.game.compare?.[0]) {
-      return state.game.compare[0]
-    } else {
-      return { name: 'rock', image: rock, status: 'tie' }
-    }
-  })
-
-  const playerPosition = useSelector(
-    (state) => state.game.players.player.position
-  )
-
-  const roulette = useSelector((state) => {
-    if (state.game.compare?.[1]) {
-      return state.game.compare[1]
-    } else {
-      return { name: 'rock', image: rock, status: 'tie' }
-    }
-  })
-
-  const roulettePosition = useSelector(
-    (state) => state.game.players.roulette.position
-  )
+  const { player, computer, animation } = useSelector(players)
 
   return (
-    <div className={`${styles.gameField} ${visible} ${state}`}>
-      <Player
-        title='YOU PICKED'
-        status={player.status}
-        position={playerPosition}
-      >
-        <img src={player.image} alt={player.name} width={292} />
-      </Player>
-      <Player
-        title='THE HOUSE PICKED'
-        status={roulette.status}
-        position={roulettePosition}
-      >
-        <Roulette />
-      </Player>
+    <div className={styles.gameField} data-animation={animation}>
+      <Player title='YOU PICKED' player={player} />
+      <Player title='THE HOUSE PICKED' player={computer} />
     </div>
   )
 }
