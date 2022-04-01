@@ -47,6 +47,7 @@ const gameSlice = createSlice({
       resultHUD: '',
       elementsList: '',
       gameField: '',
+      modal: '',
     },
     result: {
       score: 0,
@@ -110,18 +111,38 @@ const gameSlice = createSlice({
       }
     },
 
-    showGameFieldAnimation(state) {
-      state.animations.gameField = 'fadeIn'
-    },
-
-    resetGameFieldAnimation(state) {
-      state.animations.gameField = ''
-    },
-
-    showResultAnimation(state, action) {
+    setModalAnimation(state, action) {
       switch (action.payload.animation) {
+        case 'fadeIn':
+          state.animations.modal = 'fadeIn'
+          break
+
         case 'fadeOut':
-          state.animations.resultHUD = 'fadeOut'
+          state.animations.modal = 'fadeOut'
+          break
+
+        default:
+          state.animations.modal = ''
+          break
+      }
+    },
+
+    setGameFieldAnimation(state, action) {
+      switch (action.payload.animation) {
+        case 'fadeIn':
+          state.animations.gameField = 'fadeIn'
+          break
+
+        default:
+          state.animations.gameField = ''
+          break
+      }
+    },
+
+    setResultAnimation(state, action) {
+      switch (action.payload.animation) {
+        case 'fadeIn':
+          state.animations.resultHUD = 'fadeIn'
           break
 
         case 'slideToBottom':
@@ -134,18 +155,14 @@ const gameSlice = createSlice({
       }
     },
 
-    resetResultAnimation(state) {
-      state.animations.resultHUD.isVisible = false
-    },
-
-    showElementsListAnimation(state, action) {
+    setElementsListAnimation(state, action) {
       switch (action.payload.animation) {
         case 'fadeOut':
           state.animations.elementsList = 'fadeOut'
           break
 
-        case 'fadeIn':
-          state.animations.elementsList = 'fadeIn'
+        case 'longFadeIn':
+          state.animations.elementsList = 'longFadeIn'
           break
 
         default:
@@ -154,11 +171,7 @@ const gameSlice = createSlice({
       }
     },
 
-    resetElementsListAnimation(state) {
-      state.animations.elementsList = ''
-    },
-
-    showPlayersAnimation(state, action) {
+    setPlayersAnimation(state, action) {
       switch (action.payload.animation) {
         case 'shortSlideToLeft':
           state.animations.player = 'shortSlideToLeft'
@@ -175,15 +188,6 @@ const gameSlice = createSlice({
           state.animations.computer = ''
           break
       }
-    },
-
-    resetResultAnimation(state) {
-      state.animations.resultHUD = ''
-    },
-
-    resetPlayersAnimation(state) {
-      state.animations.player = ''
-      state.animations.computer = ''
     },
 
     resetPlayers(state) {
@@ -215,15 +219,11 @@ export const {
   getWinner,
   updateScore,
 
-  showGameFieldAnimation,
-  showElementsListAnimation,
-  showPlayersAnimation,
-  showResultAnimation,
-
-  resetGameFieldAnimation,
-  resetElementsListAnimation,
-  resetPlayersAnimation,
-  resetResultAnimation,
+  setModalAnimation,
+  setResultAnimation,
+  setGameFieldAnimation,
+  setElementsListAnimation,
+  setPlayersAnimation,
 
   resetPlayers,
 } = gameSlice.actions

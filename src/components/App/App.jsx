@@ -4,12 +4,20 @@ import Score from '../Score'
 import GameField from '../GameField'
 import ElementList from '../ElementsList'
 import Result from '../Result/Result'
-import { useSelector } from 'react-redux'
+import Modal from '../Modal/Modal'
+import { useDispatch, useSelector } from 'react-redux'
+import { setModalAnimation } from '../../store/gameSlice'
 
 function App() {
+  const dispatch = useDispatch()
+
   const isGameStarted = useSelector(
     (state) => state.game.players.player.isElementSelected
   )
+
+  function showModal() {
+    dispatch(setModalAnimation({ animation: 'fadeIn' }))
+  }
 
   return (
     <>
@@ -30,10 +38,11 @@ function App() {
         )}
       </main>
       <footer className={styles.footer}>
-        <button className={styles.rules} type='button'>
+        <button className={styles.rules} type='button' onClick={showModal}>
           Rules
         </button>
       </footer>
+      <Modal />
     </>
   )
 }

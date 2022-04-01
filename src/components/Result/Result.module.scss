@@ -1,3 +1,5 @@
+@use '../../utils/styles/animations.scss';
+
 .result {
   display: grid;
   row-gap: 16px;
@@ -9,35 +11,13 @@
   transform: translate(-50%, -50%);
 
   opacity: 0;
-  pointer-events: none;
 
-  &[data-animation~='fadeOut'] {
-    animation: fadeOut 1s forwards;
+  &[data-animation~='fadeIn'] {
+    animation: fadeIn 1s 0.5s forwards;
   }
 
   &[data-animation~='slideToBottom'] {
     animation: slideToBottom 1s forwards;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    pointer-events: all;
-  }
-}
-
-@keyframes slideToBottom {
-  0% {
-    opacity: 1;
-    top: 50%;
-  }
-  100% {
-    opacity: 1;
-    top: 200%;
   }
 }
 
@@ -58,7 +38,7 @@
   padding-block: 14.5px;
 
   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 
   font-weight: 600;
@@ -66,5 +46,5 @@
   line-height: 19px;
   letter-spacing: 2.5px;
 
-  color: #3b4262;
+  color: var(--clr-dark-text);
 }

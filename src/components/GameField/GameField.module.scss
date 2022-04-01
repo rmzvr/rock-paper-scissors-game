@@ -1,3 +1,5 @@
+@use '../../utils/styles/animations.scss';
+
 .gameField {
   max-width: 700px;
 
@@ -9,14 +11,5 @@
 
   &[data-animation~='fadeIn'] {
     animation: fadeIn 2s forwards;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }

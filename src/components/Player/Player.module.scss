@@ -1,3 +1,5 @@
+@use '../../utils/styles/animations.scss';
+
 .player {
   width: 292px;
   min-height: 395px;
@@ -25,42 +27,6 @@
 
   &[data-animation~='longSlideToRight'] {
     animation: longSlideToRight 1.4s forwards;
-  }
-}
-
-@keyframes shortSlideToLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-144px);
-  }
-}
-
-@keyframes shortSlideToRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(144px);
-  }
-}
-
-@keyframes longSlideToLeft {
-  0% {
-    transform: translateX(-144px);
-  }
-  100% {
-    transform: translateX(-1200px);
-  }
-}
-
-@keyframes longSlideToRight {
-  0% {
-    transform: translateX(144px);
-  }
-  100% {
-    transform: translateX(1200px);
   }
 }
 

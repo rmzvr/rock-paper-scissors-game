@@ -4,10 +4,10 @@ import {
   getRandomElement,
   getWinner,
   updateScore,
-  showResultAnimation,
-  showPlayersAnimation,
-  showElementsListAnimation,
-  showGameFieldAnimation,
+  setResultAnimation,
+  setPlayersAnimation,
+  setElementsListAnimation,
+  setGameFieldAnimation,
 } from '../../store/gameSlice'
 import styles from './Element.module.scss'
 
@@ -15,17 +15,17 @@ function Element({ element }) {
   const dispatch = useDispatch()
 
   function startGame() {
-    dispatch(showElementsListAnimation({ animation: 'fadeOut' }))
+    dispatch(setElementsListAnimation({ animation: 'fadeOut' }))
     setTimeout(() => {
       dispatch(setActiveElement({ name: element.name }))
-      dispatch(showGameFieldAnimation())
+      dispatch(setGameFieldAnimation({ animation: 'fadeIn' }))
     }, 1000)
     setTimeout(() => {
       dispatch(getRandomElement())
       dispatch(getWinner())
       dispatch(updateScore())
-      dispatch(showPlayersAnimation({ animation: 'shortSlideToLeft' }))
-      dispatch(showResultAnimation({ animation: 'fadeOut' }))
+      dispatch(setPlayersAnimation({ animation: 'shortSlideToLeft' }))
+      dispatch(setResultAnimation({ animation: 'fadeIn' }))
     }, 4000)
   }
 

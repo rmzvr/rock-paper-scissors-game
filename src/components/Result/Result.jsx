@@ -1,12 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  showResultAnimation,
-  showPlayersAnimation,
-  resetElementsListAnimation,
-  resetPlayersAnimation,
-  resetResultAnimation,
+  setResultAnimation,
+  setPlayersAnimation,
   resetPlayers,
-  showElementsListAnimation,
+  setElementsListAnimation,
 } from '../../store/gameSlice'
 import styles from './Result.module.scss'
 
@@ -14,14 +11,14 @@ function Result() {
   const dispatch = useDispatch()
 
   function resetGame() {
-    dispatch(showResultAnimation({ animation: 'slideToBottom' }))
-    dispatch(showPlayersAnimation({ animation: 'longSlideToLeft' }))
+    dispatch(setResultAnimation({ animation: 'slideToBottom' }))
+    dispatch(setPlayersAnimation({ animation: 'longSlideToLeft' }))
     setTimeout(() => {
-      dispatch(resetResultAnimation())
-      dispatch(resetPlayersAnimation())
-      dispatch(resetElementsListAnimation())
+      dispatch(setResultAnimation({ animation: '' }))
+      dispatch(setElementsListAnimation({ animation: '' }))
+      dispatch(setPlayersAnimation({ animation: '' }))
+      dispatch(setElementsListAnimation({ animation: 'fadeIn' }))
       dispatch(resetPlayers())
-      dispatch(showElementsListAnimation({ animation: 'fadeIn' }))
     }, 1000)
   }
 

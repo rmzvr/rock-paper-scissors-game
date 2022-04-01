@@ -1,3 +1,5 @@
+@use '../../utils/styles/animations.scss';
+
 .items {
   position: relative;
 
@@ -13,28 +15,7 @@
     animation: fadeOut 1s forwards;
   }
 
-  &[data-animation~='fadeIn'] {
-    animation: fadeIn 0.5s forwards;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+  &[data-animation~='longFadeIn'] {
+    animation: longFadeIn 0.5s forwards;
   }
 }
