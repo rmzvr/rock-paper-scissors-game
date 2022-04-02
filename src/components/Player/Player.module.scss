@@ -28,6 +28,10 @@
   &[data-animation~='longSlideToRight'] {
     animation: longSlideToRight 1.4s forwards;
   }
+
+  @media screen and (max-width: 1240px) {
+    width: calc(292px + -50%);
+  }
 }
 
 .playerTitle {

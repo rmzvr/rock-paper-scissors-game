@@ -30,14 +30,14 @@ function Element({ element }) {
   }
 
   return (
-    <img
+    <div
       className={styles.item}
       id={element.name}
       data-visible={element.visible}
-      src={element.image}
-      alt={element.name}
       onClick={startGame}
-    />
+    >
+      <img src={element.image} alt={element.name} />
+    </div>
   )
 }
 

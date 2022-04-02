@@ -21,4 +21,18 @@
     left: 50%;
     transform: translateX(-50%);
   }
+
+  &:hover {
+    &::before {
+      content: url('../../assets/small-shadow.svg');
+      position: absolute;
+      top: -11.5%;
+      left: -11.5%;
+
+      width: 252px;
+      height: 248px;
+
+      z-index: -1;
+    }
+  }
 }

@@ -16,9 +16,9 @@ function Modal() {
   return (
     <div className={styles.modal} data-animation={animation}>
       <div className={styles.content}>
-        <header className={styles.contentHeader}>
+        <div className={styles.contentHeader}>
           <h2 className={styles.title}>RULES</h2>
-          <button type='button' onClick={hideModal}>
+          <button type='button' aria-label='rules' onClick={hideModal}>
             <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'>
               <path
                 fill='#3B4262'
@@ -28,7 +28,7 @@ function Modal() {
               />
             </svg>
           </button>
-        </header>
+        </div>
         <div className={styles.contentBody}>
           <img src={rules} alt='rules' />
         </div>
